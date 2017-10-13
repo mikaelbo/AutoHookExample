@@ -18,7 +18,7 @@ Sample project for creating a dynamic framework for method swizzling and code in
 
 - (void)hook_viewDidLoad {
     [self orig_viewDidLoad];
-	self.view.backgroundColor = [UIColor redColor]
+    self.view.backgroundColor = [UIColor redColor]
 }
 
 // MARK: Placeholder
