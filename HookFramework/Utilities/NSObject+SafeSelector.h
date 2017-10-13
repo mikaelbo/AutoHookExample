@@ -9,9 +9,9 @@
 
 @interface NSObject (SafeSelector)
 
-- (void)performSelectorFromString:(NSString *)selector;
-- (void)performSelectorFromString:(NSString *)selector withObject:(id)object;
-- (id)performSelectorFromString:(NSString *)selector withExpectedClass:(Class)expectedClass;
-- (id)performSelectorFromString:(NSString *)selector withObject:(id)object expectedClass:(Class)expectedClass;
+- (id)performSelectorFromString:(NSString *)selector;
+- (id)performSelectorFromString:(NSString *)selector withObject:(id)object;
+- (id)performSelectorFromString:(NSString *)selector withExpectedReturnClass:(Class)expectedClass;
+- (id)performSelectorFromString:(NSString *)selector withObject:(id)object expectedReturnClass:(Class)expectedClass;
 
 @end

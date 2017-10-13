@@ -101,9 +101,8 @@
         Method targetMethod = class_getInstanceMethod(targetClass, targetMethodSelector);
         BOOL targetMetaClass = NO;
 
-        if (!targetMethod) {
+        if (!targetMethod || classMethods) {
             targetMetaClass = YES;
-            NSLog(@"CLASS METHOD");
             targetMethod = class_getClassMethod(targetClass, targetMethodSelector);
         }
 
@@ -131,7 +130,7 @@
 
         Method originalStoreMethod = class_getInstanceMethod(hookClass, originalStoreSelector);
         if (!originalStoreMethod) {
-            class_getClassMethod(hookClass, originalStoreSelector);
+            originalStoreMethod = class_getClassMethod(hookClass, originalStoreSelector);
         }
 
         IMP originalImplementation = method_getImplementation(targetMethod);
@@ -150,7 +149,8 @@
 
         IMP previousImplementation = class_replaceMethod(targetClass, targetMethodSelector, hookImplementation, targetTypeEncoding);
         if (previousImplementation != NULL) {
-            NSLog(@"Implemented hook for [%s %@]", class_getName(targetClass), targetMethodName);
+            NSString *methodType = targetMetaClass ? @"Class method" : @"Instance method";
+            NSLog(@"Implemented hook for [%s %@], %@", class_getName(targetClass), targetMethodName, methodType);
         } else {
             NSLog(@"Class specific implementation for [%s %@] not found. Method added to class instead", class_getName(targetClass), targetMethodName);
         }

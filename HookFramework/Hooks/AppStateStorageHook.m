@@ -24,6 +24,7 @@
 }
 
 + (BOOL)hook_shouldShowAds {
+    NSLog(@"ORIG SHOULD SHOW ADS: %d", [self orig_shouldShowAds]);
     return NO;
 }
 

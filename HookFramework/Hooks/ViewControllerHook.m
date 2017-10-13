@@ -24,7 +24,7 @@
     
     NSLog(@"ViewController hook_viewDidLoad");
 
-    UIView *blueView = [self performSelectorFromString:@"blueView" withExpectedClass:[UIView class]];
+    UIView *blueView = [self performSelectorFromString:@"blueView" withExpectedReturnClass:[UIView class]];
 
     [UIView animateWithDuration:1.5 animations:^{
         blueView.backgroundColor = [UIColor redColor];

@@ -20,20 +20,20 @@ _Pragma("clang diagnostic pop") \
 
 @implementation NSObject (SafeSelector)
 
-- (void)performSelectorFromString:(NSString *)selector {
-    [self performSelectorFromString:selector withExpectedClass:nil];
+- (id)performSelectorFromString:(NSString *)selector {
+    return [self performSelectorFromString:selector withExpectedReturnClass:nil];
 }
 
-- (void)performSelectorFromString:(NSString *)selector withObject:(id)object {
-    [self performSelectorFromString:selector withObject:object expectedClass:nil];
+- (id)performSelectorFromString:(NSString *)selector withObject:(id)object {
+    return [self performSelectorFromString:selector withObject:object expectedReturnClass:nil];
 }
 
-- (id)performSelectorFromString:(NSString *)selectorString withExpectedClass:(Class)expectedClass {
+- (id)performSelectorFromString:(NSString *)selectorString withExpectedReturnClass:(Class)expectedClass {
     SuppressPerformSelectorLeakWarning(
         SEL selector = NSSelectorFromString(selectorString);
         if ([self respondsToSelector:selector]) {
             id obj = [self performSelector:selector];
-            if ([obj isKindOfClass:expectedClass]) {
+            if (!expectedClass || [obj isKindOfClass:expectedClass]) {
                 return obj;
             }
         }
@@ -41,12 +41,12 @@ _Pragma("clang diagnostic pop") \
     );
 }
 
-- (id)performSelectorFromString:(NSString *)selectorString withObject:(id)object expectedClass:(Class)expectedClass {
+- (id)performSelectorFromString:(NSString *)selectorString withObject:(id)object expectedReturnClass:(Class)expectedClass {
     SuppressPerformSelectorLeakWarning(
     SEL selector = NSSelectorFromString(selectorString);
         if ([self respondsToSelector:selector]) {
             id obj = [self performSelector:selector withObject:object];
-            if ([obj isKindOfClass:expectedClass]) {
+            if (!expectedClass || [obj isKindOfClass:expectedClass]) {
                 return obj;
             }
         }
