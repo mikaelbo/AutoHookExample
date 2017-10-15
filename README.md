@@ -28,3 +28,6 @@ Sample project for creating a dynamic framework for method swizzling and code in
 @end
 
 ````
+
+## Credits
+[John Coates](https://github.com/JohnCoates) for sharing his [auto hook](https://gist.github.com/JohnCoates/c0d77f130d033b206367db480f7c18ae) code. My implementation is slightly modified to properly work for class methods.
