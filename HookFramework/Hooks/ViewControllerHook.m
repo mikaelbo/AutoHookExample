@@ -7,10 +7,12 @@
 
 @import UIKit;
 #import "MBAutoHook.h"
-#import "NSObject+SafeSelector.h"
+
+@interface UIViewController (ViewControllerHook)
+@property (weak, nonatomic) UIView *blueView;
+@end
 
 @interface ViewControllerHook: UIViewController <MBAutoHook>
-
 @end
 
 @implementation ViewControllerHook
@@ -24,10 +26,13 @@
     
     NSLog(@"ViewController hook_viewDidLoad");
 
-    UIView *blueView = [self performSelectorFromString:@"blueView" withExpectedReturnClass:[UIView class]];
+    if (![self respondsToSelector:@selector(blueView)]) {
+        return;
+    }
 
+    __weak __typeof(self) weakSelf = self;
     [UIView animateWithDuration:1.5 animations:^{
-        blueView.backgroundColor = [UIColor redColor];
+        weakSelf.blueView.backgroundColor = [UIColor redColor];
     }];
 }
 

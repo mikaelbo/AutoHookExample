@@ -7,7 +7,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MBAutoHook.h"
-#import "NSObject+SafeSelector.h"
 
 @interface AppStateStorageHook: NSObject <MBAutoHook>
 

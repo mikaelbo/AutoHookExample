@@ -20,8 +20,6 @@
 		73DADA8B1F8F8BFB006F79A0 /* MBAutoHookImplementor.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DADA891F8F8BFB006F79A0 /* MBAutoHookImplementor.m */; };
 		73DADA8E1F8F8CA1006F79A0 /* AppStateStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DADA8D1F8F8CA1006F79A0 /* AppStateStorage.m */; };
 		73DADA911F8F8D3E006F79A0 /* ViewControllerHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DADA901F8F8D3E006F79A0 /* ViewControllerHook.m */; };
-		73DADA991F8F915A006F79A0 /* NSObject+SafeSelector.h in Headers */ = {isa = PBXBuildFile; fileRef = 73DADA971F8F915A006F79A0 /* NSObject+SafeSelector.h */; };
-		73DADA9A1F8F915A006F79A0 /* NSObject+SafeSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DADA981F8F915A006F79A0 /* NSObject+SafeSelector.m */; };
 		73DADA9C1F8F9186006F79A0 /* AppStateStorageHook.m in Sources */ = {isa = PBXBuildFile; fileRef = 73DADA9B1F8F9186006F79A0 /* AppStateStorageHook.m */; };
 /* End PBXBuildFile section */
 
@@ -68,8 +66,6 @@
 		73DADA8C1F8F8CA1006F79A0 /* AppStateStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppStateStorage.h; sourceTree = "<group>"; };
 		73DADA8D1F8F8CA1006F79A0 /* AppStateStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStateStorage.m; sourceTree = "<group>"; };
 		73DADA901F8F8D3E006F79A0 /* ViewControllerHook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewControllerHook.m; sourceTree = "<group>"; };
-		73DADA971F8F915A006F79A0 /* NSObject+SafeSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SafeSelector.h"; sourceTree = "<group>"; };
-		73DADA981F8F915A006F79A0 /* NSObject+SafeSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SafeSelector.m"; sourceTree = "<group>"; };
 		73DADA9B1F8F9186006F79A0 /* AppStateStorageHook.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppStateStorageHook.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -133,7 +129,6 @@
 			children = (
 				73DADA871F8F8BFB006F79A0 /* AutoHook */,
 				73DADA8F1F8F8D34006F79A0 /* Hooks */,
-				73DADA961F8F915A006F79A0 /* Utilities */,
 				73DADA7C1F8F8BC7006F79A0 /* HookFramework.h */,
 				73DADA7D1F8F8BC7006F79A0 /* Info.plist */,
 			);
@@ -158,15 +153,6 @@
 			path = Hooks;
 			sourceTree = "<group>";
 		};
-		73DADA961F8F915A006F79A0 /* Utilities */ = {
-			isa = PBXGroup;
-			children = (
-				73DADA971F8F915A006F79A0 /* NSObject+SafeSelector.h */,
-				73DADA981F8F915A006F79A0 /* NSObject+SafeSelector.m */,
-			);
-			path = Utilities;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -174,7 +160,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				73DADA991F8F915A006F79A0 /* NSObject+SafeSelector.h in Headers */,
 				73DADA7E1F8F8BC7006F79A0 /* HookFramework.h in Headers */,
 				73DADA8A1F8F8BFB006F79A0 /* MBAutoHook.h in Headers */,
 			);
@@ -295,7 +280,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				73DADA9C1F8F9186006F79A0 /* AppStateStorageHook.m in Sources */,
-				73DADA9A1F8F915A006F79A0 /* NSObject+SafeSelector.m in Sources */,
 				73DADA8B1F8F8BFB006F79A0 /* MBAutoHookImplementor.m in Sources */,
 				73DADA911F8F8D3E006F79A0 /* ViewControllerHook.m in Sources */,
 			);
